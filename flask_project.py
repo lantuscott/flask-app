@@ -1,4 +1,5 @@
 from flask import Flask, render_template, json
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -12,11 +13,11 @@ def hello():
 
 @app.route('/jsonInvasion')
 def jsonInvasion():
-    # with open('jason.txt', 'w') as json_file:
-    #     data = json.load(json_file)
-    #     return data
+    with open('jason.txt', 'r') as json_file:
+        data = json.load(json_file)
+        return data
 
-    return render_template("jason.txt")
+    # return render_template("jason.txt")
 
 if __name__ == '__main__':
     app.run(debug=True)
